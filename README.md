@@ -78,7 +78,8 @@ If you just want to use a pre-made executable, you can use wget to fetch it like
 cd ~
 mkdir -p /home/azureuser/tess
 cd /home/azureuser/tess
-wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/tesseract
+wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/tesseract.tar.gz
+tar -zxvf tesseract.tar.gz
 ```
 
 Then ensure that the tesseract binary is in the system path on the machine **without** root access, by adding the export statement to the `~/.bash_profile` file
