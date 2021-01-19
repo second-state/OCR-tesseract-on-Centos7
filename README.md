@@ -1,3 +1,6 @@
+TL;DR
+If you just want to use this executable and not go to the trouble of having to build it, please skip ahead to [this section below](https://github.com/second-state/OCR-tesseract-on-Centos7#option-2---use-our-pre-made-executable-that-we-prepared-earlier).
+
 # Installing Tesseract 4.0.0 on Centos7
 The goal of this repo is to show how to use a CentOS7 system (**with** root access), to create a static compiled binary which can be copied over to, and used on, a CentOS7 system (**without** root access). 
 
