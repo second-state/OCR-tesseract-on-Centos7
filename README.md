@@ -102,7 +102,6 @@ mkdir -p /home/azureuser/tess/traineddata
 Then add this path to your `~/.bash_profile` file.
 ```
 export TESSDATA_PREFIX=/home/azureuser/tess/traineddata
-export TESSDATA_PREFIX
 ```
 Then action those changes
 ```
