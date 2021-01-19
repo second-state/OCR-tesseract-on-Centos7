@@ -52,8 +52,14 @@ sudo ldconfig
 ```
 
 # The CentOS7 machine WITHOUT root access 
-First, copy the tesseract binary (from the machine **with** root access) to the Centos7 machine **without** root access. 
+
+## Getting the executable
+
+### Option 1 - Use your own executable (using the procedure above)
+If you followed the procedure above, please copy the tesseract binary (from the machine **with** root access) to the Centos7 machine **without** root access. 
 ```
+cd ~
+mkdir -p /home/azureuser/tess
 cd /home/azureuser/tess
 scp -i ~/.ssh/key.pem -rp azureuser@xxx.xx.xxx.xxx:/usr/local/bin/tesseract .
 ```
@@ -61,13 +67,44 @@ Then ensure that the tesseract binary is in the system path on the machine **wit
 ```
 export PATH="$PATH:/home/azureuser/tess"
 ```
+Then action those changes
+```
+source ~/.bash_profile
+```
+
+### Option 2 - Use our pre-made executable (that we prepared earlier)
+If you just want to use a pre-made executable, you can use wget to fetch it like this. First log into the CentOS7 machine **without** root access. Then fetch the executable like this.
+```
+cd ~
+mkdir -p /home/azureuser/tess
+cd /home/azureuser/tess
+wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/tesseract
+```
+
+Then ensure that the tesseract binary is in the system path on the machine **without** root access, by adding the export statement to the `~/.bash_profile` file
+```
+export PATH="$PATH:/home/azureuser/tess"
+```
+Then action those changes
+```
+source ~/.bash_profile
+```
 
 # Load tesseract languages
 Create a new location to store the trained language data and then export that location as the `TESSDATA_PREFIX`
 ```
 mkdir -p /home/azureuser/tess/traineddata
-export TESSDATA_PREFIX=/home/azureuser/tess/traineddata
 ```
+Then add this path to your `~/.bash_profile` file.
+```
+export TESSDATA_PREFIX=/home/azureuser/tess/traineddata
+export TESSDATA_PREFIX
+```
+Then action those changes
+```
+source ~/.bash_profile
+```
+
 Copy any of the `.traineddata` files [available here](https://github.com/tesseract-ocr/tessdata) that you need to the above `TESSDATA_PREFIX` location.
 ```
 cd $TESSDATA_PREFIX
