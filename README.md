@@ -17,16 +17,16 @@ For this task you can use your own CentOS machine etc. This will have to be a ma
 
 ## Install leptonica dependencies
 ```
-sudo yum install zlib
-sudo yum install zlib-devel
-sudo yum install libjpeg
-sudo yum install libjpeg-devel
-sudo yum install libwebp
-sudo yum install libwebp-devel
-sudo yum install libtiff
-sudo yum install libtiff-devel
-sudo yum install libpng
-sudo yum install libpng-devel
+sudo yum install -y zlib
+sudo yum install -y zlib-devel
+sudo yum install -y libjpeg
+sudo yum install -y libjpeg-devel
+sudo yum install -y libwebp
+sudo yum install -y libwebp-devel
+sudo yum install -y libtiff
+sudo yum install -y libtiff-devel
+sudo yum install -y libpng
+sudo yum install -y libpng-devel
 ```
 
 ## Install leptonica from source
