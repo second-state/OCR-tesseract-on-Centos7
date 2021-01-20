@@ -143,6 +143,14 @@ cd /home/azureuser/tess
 wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/deps.tar.gz
 tar -zxvf deps.tar.gz
 ```
+Then the following line to the `~/.bash_profile` file on the CentOS7 **without** root access
+```
+export LD_LIBRARY_PATH="/home/azureuser/tess/deps/"
+```
+Then action those changes
+```
+source ~/.bash_profile
+```
 
 # Load tesseract languages
 Create a new location to store the trained language data and then export that location as the `TESSDATA_PREFIX`
