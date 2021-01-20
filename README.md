@@ -57,7 +57,7 @@ tar zxvf tesseract-4.0.0.tar.gz
 cd tesseract-4.0.0
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./autogen.sh
-./configure --prefix=/usr/local --disable-shared --enable-static --with-extra-libraries=/usr/local/lib/
+./configure --prefix=/usr/local --disable-shared --enable-static --with-zlib --with-jpeg --with-libwebp  --with-libtiff --with-libpng --with-extra-libraries=/usr/local/lib/
 make
 sudo make install
 sudo ldconfig
