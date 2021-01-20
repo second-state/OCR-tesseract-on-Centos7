@@ -126,9 +126,13 @@ Take the following files from the CentOS7 **with** root access and put them in t
 /usr/local/lib/libtiff.so.5
 /usr/local/lib/libjpeg.so.62
 ```
-Add the following line to the `~/.bash_profile` file on the CentOS7 **without** root access
+Then the following line to the `~/.bash_profile` file on the CentOS7 **without** root access
 ```
 export LD_LIBRARY_PATH="/home/azureuser/tess/deps/"
+```
+Then action those changes
+```
+source ~/.bash_profile
 ```
 
 # Load tesseract languages
