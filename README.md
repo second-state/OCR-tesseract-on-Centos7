@@ -15,6 +15,14 @@ Then, we copy the `tesseract` executable over to the machine **without** root ac
 # The CentOS7 machine WITH root access 
 For this task you can use your own CentOS machine etc. This will have to be a machine on which you have full priveledges.
 
+## Install system dependencies
+```
+sudo yum install -y git
+sudo yum install -y libtool
+sudo yum install clang
+sudo yum install -y gcc-c++.x86_64
+```
+
 ## Install leptonica dependencies
 ```
 sudo yum install -y zlib
@@ -31,7 +39,7 @@ sudo yum install -y libpng-devel
 
 ## Install leptonica from source
 ```
-cd /home/asureuser
+cd /home/azureuser
 git clone https://github.com/DanBloomberg/leptonica.git --depth 1
 cd /home/azureuser/leptonica
 ./autogen.sh
@@ -43,8 +51,9 @@ sudo ldconfig
 
 ## Install tesseract from source
 ```
+cd /home/azureuser
 wget https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz -O tesseract-4.0.0.tar.gz
-tar xvvfz tesseract-4.0.0.tar.gz
+tar zxvf tesseract-4.0.0.tar.gz
 cd tesseract-4.0.0
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./autogen.sh
