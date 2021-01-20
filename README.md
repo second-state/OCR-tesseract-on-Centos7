@@ -184,3 +184,28 @@ Then run the tesseract command and pass in the image as the first parameter
 cd /home/azureuser/tess
 ./tesseract a_french_lunch_menu.png stdout --dpi 70 -l fra
 ```
+
+# Potential errors
+If you get an error relating to a dependency i.e.
+```
+./tesseract: error while loading shared libraries: xxxxxxx.so.x: cannot open shared object file: No such file or directory
+```
+Please run `ldd tesseract` as shown below to see which dependencies are `=> not_found` and then place an issue so I can add those to the `deps.tar.gz`
+```
+[azureuser@centos7-ocr tess]$ ldd tesseract
+	linux-vdso.so.1 =>  (0x00007fff2c5bd000)
+	libpng15.so.15 => /lib64/libpng15.so.15 (0x00007f55715d6000)
+	libjpeg.so.62 (0x00007f5571381000)
+	libtiff.so.5 (0x00007f557110d000)
+	libwebp.so.4 (0x00007f5570ebd000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f5570ca7000)
+	librt.so.1 => /lib64/librt.so.1 (0x00007f5570a9f000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f5570883000)
+	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007f557057c000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f557027a000)
+	libgomp.so.1 => /lib64/libgomp.so.1 (0x00007f5570054000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f556fe3e000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f556fa70000)
+	libjbig.so.2.0 => /home/azureuser/tess/deps/libjbig.so.2.0 (0x00007f556f864000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f5571801000)
+```
