@@ -64,9 +64,9 @@ cd /home/azureuser
 wget https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz -O tesseract-4.0.0.tar.gz
 tar zxvf tesseract-4.0.0.tar.gz
 cd tesseract-4.0.0
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/lib64/pkgconfig
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./autogen.sh
-./configure --prefix=/usr/local --disable-shared --enable-static --with-extra-libraries=/usr/local/lib/ 
+./configure --prefix=/usr/local --disable-shared --enable-static --with-extra-libraries=/usr/local/lib/ --with-extra-includes=/usr/local/lib/
 make
 sudo make install
 sudo ldconfig
