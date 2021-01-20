@@ -1,3 +1,6 @@
+TL;DR
+If you just want to use this executable and not go to the trouble of having to build it, please skip ahead to [this section below](https://github.com/second-state/OCR-tesseract-on-Centos7#option-2---use-our-pre-made-executable-that-we-prepared-earlier).
+
 # Installing Tesseract 4.0.0 on Centos7
 The goal of this repo is to show how to use a CentOS7 system (**with** root access), to create a static compiled binary which can be copied over to, and used on, a CentOS7 system (**without** root access). 
 
@@ -14,16 +17,16 @@ For this task you can use your own CentOS machine etc. This will have to be a ma
 
 ## Install leptonica dependencies
 ```
-sudo yum install zlib
-sudo yum install zlib-devel
-sudo yum install libjpeg
-sudo yum install libjpeg-devel
-sudo yum install libwebp
-sudo yum install libwebp-devel
-sudo yum install libtiff
-sudo yum install libtiff-devel
-sudo yum install libpng
-sudo yum install libpng-devel
+sudo yum install -y zlib
+sudo yum install -y zlib-devel
+sudo yum install -y libjpeg
+sudo yum install -y libjpeg-devel
+sudo yum install -y libwebp
+sudo yum install -y libwebp-devel
+sudo yum install -y libtiff
+sudo yum install -y libtiff-devel
+sudo yum install -y libpng
+sudo yum install -y libpng-devel
 ```
 
 ## Install leptonica from source
@@ -78,7 +81,8 @@ If you just want to use a pre-made executable, you can use wget to fetch it like
 cd ~
 mkdir -p /home/azureuser/tess
 cd /home/azureuser/tess
-wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/tesseract
+wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/tesseract.tar.gz
+tar -zxvf tesseract.tar.gz
 ```
 
 Then ensure that the tesseract binary is in the system path on the machine **without** root access, by adding the export statement to the `~/.bash_profile` file
@@ -98,7 +102,6 @@ mkdir -p /home/azureuser/tess/traineddata
 Then add this path to your `~/.bash_profile` file.
 ```
 export TESSDATA_PREFIX=/home/azureuser/tess/traineddata
-export TESSDATA_PREFIX
 ```
 Then action those changes
 ```
