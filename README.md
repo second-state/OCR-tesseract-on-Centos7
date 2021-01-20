@@ -112,6 +112,25 @@ Then action those changes
 source ~/.bash_profile
 ```
 
+## Finalizing dependencies
+
+Create a new deps directory on the CentOS7 **without** root access
+```
+mkdir -p /home/azureuser/tess/deps
+```
+
+Take the following files from the CentOS7 **with** root access and put them in the `deps` directory that you just created.
+```
+/usr/lib64/libjbig.so.2.0
+/usr/local/lib/libwebp.so.4
+/usr/local/lib/libtiff.so.5
+/usr/local/lib/libjpeg.so.62
+```
+Add the following line to the `~/.bash_profile` file on the CentOS7 **without** root access
+```
+export LD_LIBRARY_PATH="/home/azureuser/tess/deps/"
+```
+
 # Load tesseract languages
 Create a new location to store the trained language data and then export that location as the `TESSDATA_PREFIX`
 ```
