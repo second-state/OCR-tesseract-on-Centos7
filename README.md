@@ -114,6 +114,8 @@ source ~/.bash_profile
 
 ## Finalizing dependencies
 
+### Option 1 - use your own files
+
 Create a new deps directory on the CentOS7 **without** root access
 ```
 mkdir -p /home/azureuser/tess/deps
@@ -133,6 +135,13 @@ export LD_LIBRARY_PATH="/home/azureuser/tess/deps/"
 Then action those changes
 ```
 source ~/.bash_profile
+```
+
+### Option 2 - use our files (that we prepared earlier)
+```
+cd /home/azureuser/tess
+wget https://github.com/second-state/OCR-tesseract-on-Centos7/raw/main/deps.tar.gz
+tar -zxvf deps.tar.gz
 ```
 
 # Load tesseract languages
