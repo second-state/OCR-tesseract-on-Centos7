@@ -145,7 +145,7 @@ tar -zxvf deps.tar.gz
 ```
 Then the following line to the `~/.bash_profile` file on the CentOS7 **without** root access
 ```
-export LD_LIBRARY_PATH="/home/azureuser/tess/deps/"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/azureuser/tess/deps/"
 ```
 Then action those changes
 ```
