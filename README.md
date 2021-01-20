@@ -37,6 +37,15 @@ sudo yum install -y libpng
 sudo yum install -y libpng-devel
 ```
 
+## Move executables to /usr/local/lib
+```
+cd /usr/local/lib
+sudo cp /usr/lib64/libjpeg.so.62 .
+sudo cp /usr/lib64/libwebp.so.4 .
+sudo cp /usr/lib64/libtiff.so.5 .
+sudo cp /usr/lib64/libpng15.so.15 .
+```
+
 ## Install leptonica from source
 ```
 cd /home/azureuser
@@ -55,9 +64,9 @@ cd /home/azureuser
 wget https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz -O tesseract-4.0.0.tar.gz
 tar zxvf tesseract-4.0.0.tar.gz
 cd tesseract-4.0.0
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/lib64/pkgconfig
 ./autogen.sh
-./configure --prefix=/usr/local --disable-shared --enable-static --with-zlib --with-jpeg --with-libwebp  --with-libtiff --with-libpng --with-extra-libraries=/usr/local/lib/
+./configure --prefix=/usr/local --disable-shared --enable-static --with-extra-libraries=/usr/local/lib/ 
 make
 sudo make install
 sudo ldconfig
