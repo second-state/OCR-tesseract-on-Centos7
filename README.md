@@ -173,7 +173,7 @@ wget https://github.com/tesseract-ocr/tessdata/raw/master/fra.traineddata
 wget https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
 ```
 
-# Try tesseract
+# Try tesseract - using the system's environment variables
 Grab an image such as [this french lunch menu example]( wget https://second-state.github.io/wasm-learning/faas/ocr/html/a_french_lunch_menu.png)
 ```
 cd /home/azureuser/tess
@@ -184,6 +184,13 @@ Then run the tesseract command and pass in the image as the first parameter
 cd /home/azureuser/tess
 ./tesseract a_french_lunch_menu.png stdout --dpi 70 -l fra
 ```
+
+# Try tesseract - manually passing environment vars as part of the command
+In cases where you are calling the tesseract as a system command (via a third party environment) you could also not worry about setting environment variables in files like bash_profile etc. Instead you can just make the `PATH`, `TESSDATA_PREFIX`, and `LD_LIBRARY_PATH` part of the actual command.
+```
+PATH="$PATH:/home/azureuser/tess" TESSDATA_PREFIX="/home/azureuser/tess/traineddata" LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/azureuser/tess/deps/" tesseract a_french_lunch_menu.png stdout --dpi 70 -l fra
+```
+This is actually safer than having an `LD_LIBRARY_PATH` set globally.
 
 # Potential errors
 If you get an error relating to a dependency i.e.
